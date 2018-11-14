@@ -15,14 +15,18 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv;
     private ProgressBar progressBar;
     private Button bt;
+    private DataModel dataModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dataModel = new DataModel();
+
         tv = findViewById(R.id.tv);
         progressBar = findViewById(R.id.progressBar);
         bt = findViewById(R.id.but_update);
+
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        DataModel.getInstance().setData(UUID.randomUUID().toString());
+                        dataModel.setData(UUID.randomUUID().toString());
                         reload();
                     }
                 },2000);
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void reload(){
-        String data = DataModel.getInstance().getData();
+        String data = dataModel.getData();
         tv.setText(data);
         progressBar(false);
     }
