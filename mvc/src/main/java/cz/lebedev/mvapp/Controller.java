@@ -5,9 +5,11 @@ import android.os.Handler;
 public class Controller {
 
     UpdateListener updateListener;
+    DataModel dataModel;
 
-    public Controller(UpdateListener updateListener){
+    public Controller(UpdateListener updateListener, DataModel dataModel){
         this.updateListener = updateListener;
+        this.dataModel = dataModel;
         updateListener.update();
     }
 
@@ -17,7 +19,7 @@ public class Controller {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                DataModel.getInstance().setData(dataupdated);
+                dataModel.setData(dataupdated);
                 updateListener.update();
             }
         },2000);

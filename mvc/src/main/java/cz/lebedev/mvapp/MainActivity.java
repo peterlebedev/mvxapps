@@ -15,14 +15,15 @@ public class MainActivity extends AppCompatActivity implements UpdateListener{
     TextView tv;
     private ProgressBar progressBar;
     private Button setb;
+    private DataModel dataModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dataModel = new DataModel();
         progressBar = findViewById(R.id.progressBar);
         tv = findViewById(R.id.tv);
-
 
         setb = findViewById(R.id.bv_set);
         setb.setOnClickListener(new View.OnClickListener() {
@@ -34,13 +35,13 @@ public class MainActivity extends AppCompatActivity implements UpdateListener{
         });
 
         progressBar(true);
-        cntrl = new Controller(this);
+        cntrl = new Controller(this,dataModel);
     }
 
     @Override
     public void update() {
         progressBar(false);
-        String data = DataModel.getInstance().getData();
+        String data = dataModel.getData();
         tv.setText(data);
     }
 
