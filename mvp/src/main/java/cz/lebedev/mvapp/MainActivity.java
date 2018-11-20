@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         setb = findViewById(R.id.bv_set);
         progressBar = findViewById(R.id.progress);
 
-        presenter = new MainPresenter(this, DataModel.getInstance());
+        presenter = new MainPresenter(this, new DataModel());
 
 
         setb.setOnClickListener(new View.OnClickListener() {
