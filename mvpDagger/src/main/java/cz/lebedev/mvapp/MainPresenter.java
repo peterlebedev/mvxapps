@@ -2,51 +2,16 @@ package cz.lebedev.mvapp;
 
 import javax.inject.Inject;
 
-public class MainPresenter {
+public interface MainPresenter {
 
-    @Inject
-    MainView mainView;
+    void onResume();
 
-    @Inject
-    DataModel dataModel;
+    void onUpdateButton(String item);
 
-    @Inject
-    public MainPresenter(){
-    }
+    void onDestroy();
 
-//    public MainPresenter(MainView mainView, DataModel dataModel){
-//        this.mainView = mainView;
-//        this.dataModel = dataModel;
-//    }
+    public void onFinished(String data);
 
-    void onResume() {
-        if (mainView != null) {
-            mainView.showProgress();
-        }
-        dataModel.getData(this::onFinished);
-    }
-
-    void onUpdateButton(String item) {
-        if (mainView != null) {
-            mainView.showProgress();
-        }
-        dataModel.setData(item);
-        dataModel.getData(this::onFinished);
-    }
-
-    void onDestroy() {
-        mainView = null;
-    }
-
-    public void onFinished(String data) {
-        if (mainView != null) {
-            mainView.setData(data);
-            mainView.hideProgress();
-        }
-    }
-
-    public MainView getMainView() {
-        return mainView;
-    }
+    public MainView getMainView();
 
 }
