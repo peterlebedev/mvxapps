@@ -7,8 +7,13 @@ import androidx.lifecycle.ViewModel;
 
 class DataViewModel extends ViewModel {
     public MutableLiveData<String> data = new MutableLiveData<String>();
+    DataModel dataModel;
+
 
     public DataViewModel(){
+        dataModel = new DataModel();
+
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -17,7 +22,7 @@ class DataViewModel extends ViewModel {
         },2000);    }
 
     private void reload() {
-        String dataFromModel = DataModel.getInstance().getData();
+        String dataFromModel = dataModel.getData();
         data.postValue(dataFromModel);
     }
 
@@ -29,7 +34,7 @@ class DataViewModel extends ViewModel {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                DataModel.getInstance().setData(s);
+                dataModel.setData(s);
                 reload();
             }
         },2000);
