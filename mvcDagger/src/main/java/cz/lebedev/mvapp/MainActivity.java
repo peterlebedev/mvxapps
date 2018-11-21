@@ -17,10 +17,7 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements UpdateListener{
 
-    @Inject
     DataModel dataModel;
-
-    @Inject
     Controller cntrl;
 
     TextView tv;
@@ -33,14 +30,10 @@ public class MainActivity extends AppCompatActivity implements UpdateListener{
         setContentView(R.layout.activity_main);
 
 
-        //AppComponent build = DaggerAppComponent.builder().mainActivityModule(new MainActivityModule(this)).build();
+        AppComponent build = DaggerAppComponent.builder().mainActivityModule(new MainActivityModule(this)).build();
 
-        AppComponent build = DaggerAppComponent.builder().mainActivity(this).build();
-
-        build.injectMainActivity(this);
-
-//        dataModel = build.getDamodel();
-//        cntrl = build.getController();
+        dataModel = build.getDamodel();
+        cntrl = build.getController();
 
         progressBar = findViewById(R.id.progressBar);
         tv = findViewById(R.id.tv);

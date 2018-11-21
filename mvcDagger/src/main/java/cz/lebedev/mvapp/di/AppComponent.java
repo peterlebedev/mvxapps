@@ -10,19 +10,9 @@ import dagger.Component;
 
 
 @MyScope
-//@Component(modules = {MainActivityModule.class, UpdateListenerModule.class})
-@Component(modules = {UpdateListenerModule.class})
+@Component(modules = {MainActivityModule.class, UpdateListenerModule.class})
+
 public interface AppComponent {
-    //DataModel getDamodel();
-    //Controller getController();
-    void injectMainActivity(MainActivity mainActivity);
-
-    @Component.Builder
-    interface Builder{
-        AppComponent build();
-        @BindsInstance Builder mainActivity(MainActivity mainActivity);
-    }
-
-
-
+    DataModel getDamodel();
+    Controller getController();
 }
