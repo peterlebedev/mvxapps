@@ -4,11 +4,14 @@ import cz.lebedev.mvapp.MainActivity;
 import cz.lebedev.mvapp.UpdateListener;
 import dagger.Binds;
 import dagger.Module;
+import dagger.Provides;
 
 @Module
-public abstract class UpdateListenerModule {
+public class UpdateListenerModule {
 
-    @Binds
-    public abstract UpdateListener updateListener(MainActivity mainActivity);
+    @Provides
+    public UpdateListener updateListener(MainActivity mainActivity){
+        return mainActivity;
+    }
 
 }
