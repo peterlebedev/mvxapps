@@ -7,6 +7,7 @@ import dagger.Component;
 
 
 //SOLUTION1 @Component(modules = {MainActivityModule.class, UpdateListenerModule.class})
+@MyScope
 @Component(modules = {UpdateListenerModule.class})
 public interface AppComponent {
     //SOLUTION1 DataModel getDamodel();

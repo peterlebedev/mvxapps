@@ -1,7 +1,11 @@
 package cz.lebedev.mvapp;
 
+import cz.lebedev.mvapp.di.MyScope;
+
 import javax.inject.Inject;
 
+
+@MyScope
 public class DataModel {
     String data = "some data";
 
