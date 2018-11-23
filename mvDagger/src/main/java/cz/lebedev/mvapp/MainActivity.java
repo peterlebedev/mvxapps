@@ -1,6 +1,5 @@
 package cz.lebedev.mvapp;
 
-import android.app.Activity;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
@@ -8,17 +7,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import cz.lebedev.mvapp.di.DaggerDataComponent;
 import cz.lebedev.mvapp.di.DataComponent;
-import dagger.android.AndroidInjection;
-import dagger.android.AndroidInjector;
-import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasActivityInjector;
-import dagger.android.support.AndroidSupportInjection;
-import dagger.android.support.HasSupportFragmentInjector;
 
-import javax.inject.Inject;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
