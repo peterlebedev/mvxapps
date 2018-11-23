@@ -26,7 +26,7 @@ public class MainActivity extends DaggerAppCompatActivity {
     private Button setb;
     private DataViewModel dataViewModel;
     @Inject
-    ViewModelProvider.Factory viewModelFacotry;
+    ViewModelProvider.Factory viewModelFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class MainActivity extends DaggerAppCompatActivity {
         setb = findViewById(R.id.bv_set);
         progressBar = findViewById(R.id.progress);
 
-        dataViewModel = ViewModelProviders.of(this).get(DataViewModel.class);
+        dataViewModel = ViewModelProviders.of(this,viewModelFactory).get(DataViewModel.class);
         dataViewModel.getData().observe(this, new Observer<String>() {
                     @Override
                     public void onChanged(String s) {
