@@ -9,7 +9,6 @@ import android.os.Bundle;
 import cz.lebedev.mvapp.di.AppComponent;
 import cz.lebedev.mvapp.di.DaggerAppComponent;
 import cz.lebedev.mvapp.di.MainActivityModule;
-import dagger.android.AndroidInjector;
 
 
 import javax.inject.Inject;
