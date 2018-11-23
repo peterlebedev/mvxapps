@@ -1,7 +1,5 @@
 package cz.lebedev.mvapp;
 
-import javax.inject.Inject;
-
 public interface MainPresenter {
 
     void onResume();
