@@ -6,7 +6,6 @@ import cz.lebedev.mvapp.MainPresenterImpl;
 import cz.lebedev.mvapp.MainView;
 import dagger.Binds;
 import dagger.Module;
-import dagger.Provides;
 
 @Module
 public abstract class MainActivityModule {

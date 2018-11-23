@@ -1,7 +1,6 @@
 package cz.lebedev.mvapp.di;
 
 import android.app.Application;
-import cz.lebedev.mvapp.MainActivity;
 import cz.lebedev.mvapp.MyApp;
 import dagger.BindsInstance;
 import dagger.Component;
