@@ -1,1 +1,1 @@
-include ':mv', ':mvc', ':mvp', ':mvvm'
+include ':mv', ':mvc', ':mvp', ':mvvm', ':mvDagger', ':mvcDagger', ':mvpDagger', ':mvpDaggerNew', ':mvvmDagger', ':mvcDaggerInject', ':mvvmDaggerNew', ':mvvmDaggerDataBinding'
