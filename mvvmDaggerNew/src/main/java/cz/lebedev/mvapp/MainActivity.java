@@ -1,12 +1,10 @@
 package cz.lebedev.mvapp;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
@@ -18,9 +16,6 @@ import java.util.UUID;
 
 public class MainActivity extends DaggerAppCompatActivity {
 
-    @Inject
-    DataModel dataModel;
-
     private ProgressBar progressBar;
     TextView tv;
     private Button setb;
@@ -31,7 +26,6 @@ public class MainActivity extends DaggerAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("pele","datamodel = "+dataModel);
 
         setContentView(R.layout.activity_main);
         tv = findViewById(R.id.tv);
