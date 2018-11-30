@@ -8,7 +8,6 @@ import dagger.android.support.DaggerAppCompatActivity;
 import cz.lebedev.mvapp.databinding.ActivityMainBinding;
 
 import javax.inject.Inject;
-import java.util.UUID;
 
 public class MainActivity extends DaggerAppCompatActivity {
 
@@ -24,17 +23,9 @@ public class MainActivity extends DaggerAppCompatActivity {
         super.onCreate(savedInstanceState);
 
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        viewDataBinding.setLifecycleOwner(this);
 
         dataViewModel = ViewModelProviders.of(this,viewModelFactory).get(DataViewModel.class);
-        viewDataBinding.setShowProgress(true);
-        dataViewModel.getData().observe(this, s -> {
-            viewDataBinding.setData(s);
-            viewDataBinding.setShowProgress(false);
-        });
-
-        viewDataBinding.bvSet.setOnClickListener(v -> {
-            viewDataBinding.setShowProgress(true);
-            dataViewModel.setData(UUID.randomUUID().toString());
-        });
+        viewDataBinding.setViewModel(dataViewModel);
     }
 }
