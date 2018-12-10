@@ -1,7 +1,13 @@
 package cz.lebedev.mvapp;
 
+
+
+
 public class DataModel {
-    String data = "some data";
+
+    public static final String initData = "some data";
+
+    String data = initData;
 
     public String getData() {
         return data;
