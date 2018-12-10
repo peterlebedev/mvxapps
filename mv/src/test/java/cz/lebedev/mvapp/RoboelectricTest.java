@@ -34,17 +34,17 @@ public class RoboelectricTest {
                 .get();
     }
 
-//    @Test
-//    public void shouldNotBeNull() throws Exception
-//    {
-//        assertNotNull( activity );
-//    }
-//
-//    @Test
-//    public void shouldHaveButton() throws Exception
-//    {
-//        assertNotNull( activity.findViewById( R.id.but_update) );
-//    }
+    @Test
+    public void shouldNotBeNull() throws Exception
+    {
+        assertNotNull( activity );
+    }
+
+    @Test
+    public void shouldHaveButton() throws Exception
+    {
+        assertNotNull( activity.findViewById( R.id.but_update) );
+    }
 
     @Test
     public void onClick() throws Exception
@@ -54,13 +54,10 @@ public class RoboelectricTest {
 
         TextView tv = activity.findViewById(R.id.tv);
 
-//        ShadowLooper.pauseMainLooper();
-//        Robolectric.getForegroundThreadScheduler().advanceBy(3000);
-//        ShadowLooper.unPauseMainLooper();
+        ShadowLooper.pauseMainLooper();
+        Robolectric.getForegroundThreadScheduler().advanceBy(3000);
+        ShadowLooper.unPauseMainLooper();
 
-        while (!conditionIsMet(tv)){
-            sleep(100);
-        }
         assertTrue(!tv.getText().toString().equals(DataModel.initData));
     }
 
